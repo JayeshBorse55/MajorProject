@@ -21,7 +21,7 @@ module.exports.showListing = async(req,res)=>{
         req.flash("error","Listing you requested for does not exist");
         res.redirect("/listings");
     }
-    res.render("Listings/show.ejs",{listing});
+    res.render("listings/show.ejs",{listing});
 };
 
 module.exports.createListing = async (req,res,next)=>{
@@ -57,7 +57,7 @@ module.exports.renderEditForm = async (req,res)=>{
 
     let originalImageUrl = listing.image.url;
     originalImageUrl = originalImageUrl.replace("/upload","/upload/h_300,w_250"); //It is used to decrease the quality of image
-    res.render("Listings/edit.ejs",{ listing,originalImageUrl});
+    res.render("listings/edit.ejs",{ listing,originalImageUrl});
 };
 
 module.exports.updateListing = async (req,res)=>{
@@ -73,7 +73,7 @@ module.exports.updateListing = async (req,res)=>{
     }
 
     req.flash("success","Listing Updated");
-    res.render("Listings/show.ejs",{listing});
+    res.render("listings/show.ejs",{listing});
 };
 
 module.exports.destroyListing = async (req,res)=>{
